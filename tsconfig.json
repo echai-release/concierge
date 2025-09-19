@@ -9,5 +9,5 @@
     "skipLibCheck": true,
     "outDir": "dist"
   },
-  "include": ["src", "src/App.tsx", "example/main.tsx"]
+  "include": ["src", "src/App.tsx", "src/main.tsx"]
 }
