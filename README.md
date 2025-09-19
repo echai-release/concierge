@@ -7,7 +7,7 @@ EnterpriseChai Concierge is a context aware and AI powered chatbot that engages 
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/echai-release/concierge
+git clone https://github.com/echai-release/concierge.git
 cd concierge
 ```
 
