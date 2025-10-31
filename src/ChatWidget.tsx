@@ -1,44 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ChatWidget, ChatWidgetConfig } from "@enterprisechai/concierge";
 
-export interface ChatWidgetConfig {
-  EChaiServer: string;
-  accessToken?: string;
-  theme?: "light" | "dark";
-  aiMessageIconHoverText?: string;
-  aiMessageIconUrl?: string;
-  botName?: string;
-  botAvatarUrl?: string;
-  button?: {
-    imageUrl?: string;
-    className?: string;
-  };
-}
-
-declare global {
-  interface Window {
-    mountEChaiWidget?: (config: ChatWidgetConfig) => void;
-  }
-}
-
-const SCRIPT_SRC = "https://backend.enterprisechai.com/chatbot/public/build/copilot/index.js";
-
-const ChatWidget: React.FC<{ config: ChatWidgetConfig }> = ({ config }) => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.id = "widget-loader";
-    script.src = SCRIPT_SRC;
-    script.defer = true;
-
-    script.onload = () => {
-      if (window.mountEChaiWidget) {
-        window.mountEChaiWidget(config);
-      }
-    };
-
-    document.body.appendChild(script);
-  }, [config]);
-
-  return null;
+const config: ChatWidgetConfig = {
+  accessToken: 'token', // Your token here
+  theme: "light",
+  aiMessageIconHoverText: "Ask EChai",
+  aiMessageIconUrl:
+    "https://backend.enterprisechai.com/chatbot/avatars/Enterprise%20Chai%20Assistant",
 };
 
-export default ChatWidget;
+ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+        <ChatWidget config={config} />
+    </React.StrictMode>
+);
