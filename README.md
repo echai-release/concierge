@@ -20,16 +20,18 @@ npm install
 In src/App.tsx:
 ```ruby
 const config: ChatWidgetConfig = {
-  eChaiServer: "https://backend.enterprisechai.com/chatbot",
-  accessToken: 'your-token',            # Add your token here
+  accessToken: 'token',            # Add your token here
   theme: "light",
-  aiMessageIconHoverText: "Ask EChai",
-  aiMessageIconUrl:
-    "https://backend.enterprisechai.com/chatbot/avatars/Enterprise%20Chai%20Assistant",
 };
 ```
 
-### 4. View the example
+### 4. Mount Concierge to your webpage
+View the example page under ``example/index.html`` and add the script to your webpage.
+```ruby
+<script type="module" src="../src/ChatWidget.tsx"></script> 
+```
+
+### 5. View the example
 ```bash
 npm run dev
 ```
@@ -37,10 +39,4 @@ npm run dev
 Open your browser at:
 ```bash
 http://localhost:3000/example/index.html
-```
-
-### 5. Mount Concierge to your webpage
-View the example page under ``example/index.html`` and add the script to your webpage.
-```ruby
-<script type="module" src="../src/ChatWidget.tsx"></script> 
 ```
